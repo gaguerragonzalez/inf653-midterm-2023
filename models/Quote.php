@@ -172,7 +172,7 @@
         return "unaffected";
       }
 
-      return "sucess"
+      return "sucess";
     }
 
     // update quote
@@ -227,7 +227,7 @@
         return "unaffected";
       }
 
-      return "sucess"
+      return "sucess";
     }
 
     // delete quote

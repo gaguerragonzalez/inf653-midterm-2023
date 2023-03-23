@@ -193,7 +193,7 @@
       $stmt->bindParam(':id', $this->id);
 
       // Execute query
-      $stmt->execute()
+      $stmt->execute();
 
       return $stmt->rowCount();
     }

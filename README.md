@@ -3,5 +3,5 @@ INF653 Back-End Web Development
 3/22/2023
 Midterm Project
 
-Repl.it project links:
+Repl.it project link:
 https://inf653-midterm-2023.gguerragonzalez.repl.co/api

@@ -5,4 +5,4 @@ Midterm Project
 
 Repl.it project links:
 https://replit.com/@gguerragonzalez/inf653-midterm-2023
-https://inf653-midterm-2023.gguerragonzalez.repl.co
+https://inf653-midterm-2023.gguerragonzalez.repl.co/api

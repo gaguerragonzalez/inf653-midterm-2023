@@ -169,7 +169,7 @@
       $stmt->execute();
       if (!stmt->rowCount) {
         // no quotes found
-        return "unaffected"
+        return "unaffected";
       }
 
       return "sucess"
@@ -224,7 +224,7 @@
       $stmt->execute();
       if (!stmt->rowCount) {
         // no quotes found
-        return "unaffected"
+        return "unaffected";
       }
 
       return "sucess"

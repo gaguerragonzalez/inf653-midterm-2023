@@ -121,8 +121,33 @@
       return $stmt;
     }
 
-    // Create Post
+    // create quote
     public function create() {
+      // check to see if author/category ids are valid
+      $authorquery = 'SELECT id FROM authors WHERE id = :id';
+      $categoryquery = 'SELECT id FROM categories WHERE id = :id';
+
+      $authorstmt = $this->conn->prepare($authorquery);
+      $categorystmt = $this->conn->prepare($categoryquery);
+      
+      $this->author_id = htmlspecialchars(strip_tags($this->author_id));
+      $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+      $authorstmt->bindParam(':id', $this->author_id);
+      $categorystmt->bindParam(':id', $this->category_id);
+
+      $authorstmt->execute();
+      $categorystmt->execute();
+
+      if (!$authorstmt->rowCount()) {
+        // author id is invalid
+        return "aid";
+      }
+      if (!$categorystmt->rowCount()) {
+        // category id is invalid
+        return "cid";
+      }
+
       // Create query
       $query = 'INSERT INTO ' . $this->table . '
                 (quote, author_id, category_id) 
@@ -141,18 +166,42 @@
       $stmt->bindParam(':category_id', $this->category_id);
 
       // Execute query
-      if($stmt->execute()) {
-        return $this->conn->lastInsertId();
+      $stmt->execute();
+      if (!stmt->rowCount) {
+        // no quotes found
+        return "unaffected"
       }
 
-      // Print error if something goes wrong
-      printf("Error: %s.\n", $stmt->error);
-
-      return false;
+      return "sucess"
     }
 
-    // Update Post
+    // update quote
     public function update() {
+      // check to see if author/category ids are valid
+      $authorquery = 'SELECT id FROM authors WHERE id = :id';
+      $categoryquery = 'SELECT id FROM categories WHERE id = :id';
+
+      $authorstmt = $this->conn->prepare($authorquery);
+      $categorystmt = $this->conn->prepare($categoryquery);
+      
+      $this->author_id = htmlspecialchars(strip_tags($this->author_id));
+      $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+      $authorstmt->bindParam(':id', $this->author_id);
+      $categorystmt->bindParam(':id', $this->category_id);
+
+      $authorstmt->execute();
+      $categorystmt->execute();
+
+      if (!$authorstmt->rowCount()) {
+        // author id is invalid
+        return "aid";
+      }
+      if (!$categorystmt->rowCount()) {
+        // category id is invalid
+        return "cid";
+      }
+
       // Create query
       $query = 'UPDATE ' . $this->table . '
                 SET quote = :quote, author_id = :author_id, category_id = :category_id
@@ -163,8 +212,6 @@
 
       // Clean data
       $this->quote = htmlspecialchars(strip_tags($this->quote));
-      $this->author_id = htmlspecialchars(strip_tags($this->author_id));
-      $this->category_id = htmlspecialchars(strip_tags($this->category_id));
       $this->id = htmlspecialchars(strip_tags($this->id));
 
       // Bind data
@@ -175,10 +222,15 @@
 
       // Execute query
       $stmt->execute();
-      return $stmt->rowCount();
+      if (!stmt->rowCount) {
+        // no quotes found
+        return "unaffected"
+      }
+
+      return "sucess"
     }
 
-    // Delete Post
+    // delete quote
     public function delete() {
       // Create query
       $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';

@@ -167,7 +167,7 @@
 
       // Execute query
       $stmt->execute();
-      if (!$stmt->rowCount) {
+      if (!$stmt->rowCount()) {
         // no quotes found
         return "unaffected";
       }
@@ -222,7 +222,7 @@
 
       // Execute query
       $stmt->execute();
-      if (!$stmt->rowCount) {
+      if (!$stmt->rowCount()) {
         // no quotes found
         return "unaffected";
       }

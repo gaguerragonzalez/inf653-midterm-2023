@@ -9,6 +9,9 @@
     public $author_id;
     public $category_id;
 
+
+    public $name;
+
     public function __construct($db) {
       $this->conn = $db;
     }

@@ -8,6 +8,9 @@
     public $id;
     public $author;
 
+
+    public $name;
+
     // constructor
     public function __construct($db) {
       $this->conn = $db;

@@ -8,6 +8,9 @@
     public $id;
     public $category;
 
+
+    public $name;
+
     // constructor
     public function __construct($db) {
       $this->conn = $db;

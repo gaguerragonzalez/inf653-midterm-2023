@@ -32,6 +32,6 @@
   }
   else {
     echo json_encode(
-      array('message' => "Quote Not Found")
+      array('message' => "No Quotes Found")
     );
   }

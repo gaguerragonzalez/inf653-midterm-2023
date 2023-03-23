@@ -174,14 +174,8 @@
       $stmt->bindParam(':id', $this->id);
 
       // Execute query
-      if ($stmt->execute()) {
-        return true;
-      }
-
-      // Print error if something goes wrong
-      printf("Error: %s.\n", $stmt->error);
-
-      return false;
+      $stmt->execute();
+      return $stmt->rowCount();
     }
 
     // Delete Post
@@ -199,14 +193,9 @@
       $stmt->bindParam(':id', $this->id);
 
       // Execute query
-      if ($stmt->execute()) {
-        return true;
-      }
+      $stmt->execute()
 
-      // Print error if something goes wrong
-      printf("Error: %s.\n", $stmt->error);
-
-      return false;
+      return $stmt->rowCount();
     }
     
   }
